@@ -46,7 +46,9 @@ body {
 }
 
 img {
-	display: block;
+	width: 500;
+	height: 500;
+	align: center;
 	margin: 0 auto;
 }
 
