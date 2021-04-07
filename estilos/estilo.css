@@ -46,8 +46,7 @@ body {
 }
 
 img {
-	height: 1080px;
-	width: 1080px;
+	display: block;
 	margin: 0 auto;
 }
 
