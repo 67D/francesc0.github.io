@@ -5,7 +5,7 @@ html {
 }
 
  
-h1 {
+h1 {	
 	background-color: HotPink;
 	font-size: 36px;
 	text-align: center;
@@ -18,22 +18,24 @@ h1 {
 
 
 h2 {
-	background-color: DeepPink;
+	background-color: DarkOrange;
 	width: 100px;
  	font-size: 18px;
 	line-height: 2;
 	letter-spacing: 1px;
 	border-style: double;
+	align: left;
 }	
 
 
 p {
-	background-color: MediumVioletRed;
+	background-color: Tomato;
 	width: 100px;
  	font-size: 18px;
 	line-height: 2;
 	letter-spacing: 1px;
 	border-style: double;
+	align: center;
 }
 
 
@@ -47,28 +49,24 @@ body {
 
 img {
 	display: block;
-	align: center;
-	max-width: 50%;
+	max-width: 30%;
 	margin: 200px, 200px, 200px, 0px;
+	
+		
 }
 
 .icon {
-	width: 100px;
-	height: 100px;
+	
+	width: 80px;
+	height: 80px;
 	display: inline-block;
 	margin: 0 auto;
 	padding: 20px 20px 10px 5px;
+	align: left;
 }
- button{float: right;}
-
-.icon2 {
-	width: 100px;
-	height: 100px;
-	display: inline-block;
-	margin: 0 auto;
-	padding: 20px 20px 10px 5px;
+ 
+button{
+float: right;
 }
 
-	
-	
-	
+
