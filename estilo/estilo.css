@@ -70,3 +70,11 @@ h2, h3 {
     width: 400px;
     height: 300px;
 }
+
+p {
+    color: black;
+    background-color: rgb(184, 208, 250, 0.2);
+    width: max-content;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
