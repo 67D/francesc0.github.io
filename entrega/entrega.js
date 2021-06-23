@@ -58,8 +58,7 @@ function draw() {
       var pix = (x + y * width) * 4;
       var a = sig[x][y].a;
       var b = sig[x][y].b;
-      var c = floor((a-b)*255);
-      c = constrain(c, 0, 255);
+      
       pixels[pix + 0] = b*video.pixels[pix+0];
       pixels[pix + 1] = a*0;
       pixels[pix + 2] = b*video.pixels[pix+2];
