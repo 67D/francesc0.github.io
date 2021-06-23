@@ -14,7 +14,6 @@ body {
 p {
     color: black;
     background-color: rgb(184, 208, 250, 0.2);
-    width: max-content;
     font-size: 16px;
 }
 
