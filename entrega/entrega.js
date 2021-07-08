@@ -16,9 +16,9 @@ function preload() {
 function setup() {
   createCanvas(800, 800);
   pixelDensity(1);
-  //video = createCapture(VIDEO);
-  //video.size(800, 800);
-  //video.hide();
+  video = createCapture(VIDEO);
+  video.size(800, 800);
+  video.hide();
   tabla = [];
   sig = [];
   for (var x = 0; x < width; x++) {
@@ -64,7 +64,7 @@ function draw() {
     } 
   }
  
-  //video.loadPixels();
+  video.loadPixels();
   
   loadPixels();
   for (var x = 0; x < width; x++) {
@@ -74,9 +74,9 @@ function draw() {
       var a = sig[x][y].a;
       var b = sig[x][y].b;
       
-      pixels[pix + 0] = b*y;
+      pixels[pix + 0] = b*video.pixels[0];
       pixels[pix + 1] = a*0;
-      pixels[pix + 2] = b*x;
+      pixels[pix + 2] = b*video.pixels[2];
       pixels[pix + 3] = 250;
     }
   }
