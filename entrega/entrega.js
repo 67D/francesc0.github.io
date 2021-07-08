@@ -1,20 +1,24 @@
 var tabla;
 var sig;
 var video;
+var song;
 
-//Estas variables le asignan los valores de reacción, difusión, reproducción y muerte a los 'elementos'
+
 var dA = 1.1333;
 var dB = 0.6;
 var feed = 0.00533;
 var k = 0.042;
 
+function preload() {
+    song = loadSound('audio/mush.mp3');
+}
+
 function setup() {
   createCanvas(800, 800);
   pixelDensity(1);
-  video = createCapture(VIDEO);
-  video.size(800, 800);
-  video.hide();
-  //arrays con valor inicial de 1 para A y 0 para B
+  //video = createCapture(VIDEO);
+  //video.size(800, 800);
+  //video.hide();
   tabla = [];
   sig = [];
   for (var x = 0; x < width; x++) {
@@ -25,18 +29,27 @@ function setup() {
   sig[x][y] = { a:1,  b: 0};
 }
 }
-//punto de inicio para B
-for (var i = 399; i < 400; i++) {
-  for (var j = 399; j <400; j++) {
+
+for (var i = 398; i < 400; i++) {
+  for (var j = 398; j <400; j++) {
     tabla[i][j].b = 1;
   }
 }
 }
 
+function keyPressed() {
+    if (keyCode == ENTER) {
+      saveCanvas();
+    }
+    if (keyCode == UP_ARROW){
+      song.loop();
+  }
+}
+
 function draw() {
   background(0);
 
-//Ecuaciones que dan lugar a la reacción
+
   for (var x = 1; x < width - 1; x++) {
     for (var y = 1; y < height - 1; y++) {
       var a = tabla[x][y].a;
@@ -50,8 +63,9 @@ function draw() {
         sig[x][y].b = constrain(sig[x][y].b, 0, 1);
     } 
   }
- //Le dan valores rgb y video a los pixeles
-  video.loadPixels();
+ 
+  //video.loadPixels();
+  
   loadPixels();
   for (var x = 0; x < width; x++) {
     for (var y = 0; y < height; y++) {
@@ -60,17 +74,18 @@ function draw() {
       var a = sig[x][y].a;
       var b = sig[x][y].b;
       
-      pixels[pix + 0] = b*video.pixels[pix+0];
+      pixels[pix + 0] = b*y;
       pixels[pix + 1] = a*0;
-      pixels[pix + 2] = b*video.pixels[pix+2];
+      pixels[pix + 2] = b*x;
       pixels[pix + 3] = 250;
     }
   }
   updatePixels();
 
   swap();
+  
 }
-//Estas funciones le asignan el valor a los píxeles que rodean al principal para mantener equilibrada la reacción
+
 function laplaceA(x, y) {
   var sumA = 0;
 
@@ -100,15 +115,9 @@ function laplaceB(x, y) {
   sumB += tabla[x + 1][y + 1].b * 0.05;
   return sumB;
 }
-//Iteración para actualizar los datos de los arrays
+
 function swap() {
   var temp = tabla;
   tabla = sig;
   sig = temp;
 }
-//Captura de pantalla
-function keyPressed() {
-    if (keyCode == ENTER) {
-      saveCanvas();
-    }
-  }
