@@ -44,6 +44,9 @@ function keyPressed() {
     if (keyCode == UP_ARROW){
       song.loop();
   }
+    if (keyCode == DOWN_ARROW){
+        song.stop();
+    }
 }
 
 function draw() {
