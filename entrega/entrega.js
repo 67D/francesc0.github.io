@@ -38,10 +38,10 @@ for (var i = 398; i < 400; i++) {
 }
 
 function keyPressed() {
-    if (keyCode == UP_ARROW) {
+    if (keyCode == ENTER) {
       saveCanvas();
     }
-    if (keyCode == ENTER){
+    if (keyCode == UP_ARROW){
       song.loop();
   }
 }
